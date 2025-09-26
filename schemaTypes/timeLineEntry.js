@@ -1,4 +1,5 @@
 // /sanity/schemas/gooseTimelineEntry.js
+import React from 'react';
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
@@ -38,13 +39,7 @@ export default defineType({
       type: 'string',
       readOnly: true,
       components: {
-        field: (props) => {
-                const asset = props?.parent?.image?.asset
-                const exifDate = asset?.metadata?.exif?.DateTimeOriginal || '— not found —'
-                const loc = asset?.metadata?.location
-                const gps = loc ? `lat ${loc.lat}, lng ${loc.lng}` : '— no GPS —'
-                return `EXIF Date: ${exifDate} | GPS: ${gps}`
-        }
+  field: React.lazy(() => import('../components/ExifDisplay.jsx'))
       },
     }),
 
