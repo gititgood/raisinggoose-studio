@@ -1,12 +1,15 @@
 // /sanity/schemas/gooseTimelineEntry.js
 import React from 'react';
 import {defineType, defineField} from 'sanity'
+import {orderRankField, orderRankOrdering} from '@sanity/orderable-document-list'
 
 export default defineType({
   name: 'gooseTimelineEntry',
   title: 'Goose Timeline Entry',
   type: 'document',
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: 'gooseTimelineEntry' }),
     defineField({
       name: 'title',
       title: 'Title (internal)',
