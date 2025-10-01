@@ -3,6 +3,8 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes/'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list' // Add missing import
+import deskStructure from './.sanity/deskStructure'
+import {deskTool} from 'sanity/desk'
 
 export default defineConfig({
   name: 'default',
